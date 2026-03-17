@@ -18,7 +18,11 @@ Arquivo: `cadastro_pacientes.py`
 Arquivo: `sistema_pacientes.py`  
 - Menu interativo  
 - Cadastro, listagem e busca  
-- Salvamento de dados em arquivo (.txt)  
+- Salvamento de dados em arquivo (.txt)
+
+### 📌 Análise de dados de pacientes com cálculo, classificação de IMC e geração de relatório em arquivo
+Arquivo: `analise_pacientes.py`
+- Salvamento de dados em arquivo (.txt)
 
 ## Tecnologias
 - Python
