@@ -1,0 +1,54 @@
+# Lista de pacientes (simulação)
+pacientes = [
+    {"nome": "João", "idade": 45, "peso": 80, "altura": 1.75},
+    {"nome": "Maria", "idade": 30, "peso": 65, "altura": 1.60},
+    {"nome": "Carlos", "idade": 60, "peso": 90, "altura": 1.70},
+    {"nome": "Ana", "idade": 25, "peso": 55, "altura": 1.65},
+]
+
+# Função para calcular IMC
+def calcular_imc(peso, altura):
+    return peso / (altura ** 2)
+
+# Função para classificar IMC
+def classificar_imc(imc):
+    if imc < 18.5:
+        return "Abaixo do peso"
+    elif imc < 25:
+        return "Peso normal"
+    elif imc < 30:
+        return "Sobrepeso"
+    else:
+        return "Obesidade"
+
+# Abrir arquivo para salvar resultados
+arquivo = open("relatorio_pacientes.txt", "w")
+
+# Análise
+total_pacientes = len(pacientes)
+soma_idade = 0
+soma_imc = 0
+
+for p in pacientes:
+    imc = calcular_imc(p["peso"], p["altura"])
+    classificacao = classificar_imc(imc)
+    
+    soma_idade += p["idade"]
+    soma_imc += imc
+    
+    linha = f"Paciente: {p['nome']} | IMC: {imc:.2f} - {classificacao}\n"
+    
+    print(linha)
+    arquivo.write(linha)
+
+# Resultados gerais
+media_idade = soma_idade / total_pacientes
+media_imc = soma_imc / total_pacientes
+
+resumo = f"\nRESULTADOS GERAIS\nTotal: {total_pacientes}\nMédia idade: {media_idade:.1f}\nMédia IMC: {media_imc:.2f}"
+
+print(resumo)
+arquivo.write(resumo)
+
+# Fechar arquivo
+arquivo.close()
